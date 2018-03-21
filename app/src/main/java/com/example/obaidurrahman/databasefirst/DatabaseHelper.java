@@ -2,6 +2,7 @@ package com.example.obaidurrahman.databasefirst;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -64,8 +65,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     public boolean islogin(UserModel userModel) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String sql = "select * from " + table1 + " where " + t2column2 + " = " + userModel.getUsername() + " " + t1column3 + " =" + userModel.getPassword();
-//       PreparedStatement pst=db.rawQuery(sql,null);
+        String sql = "select * from " + table1 + " where " + t1column2 + " = " + userModel.getUsername() + " and " + t1column3 + " =" + userModel.getPassword();
+       Cursor rs=db.rawQuery(sql,null);
+       if(rs.getCount()>=1)
+           return true;
 //        if(db.rawQuery(sql,null)!=null)
 //       {
 //           db.close();
@@ -73,7 +76,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 //       }
 //       else {db.close();
 //       return false;
-       return true;
+        else
+       return false;
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
