@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.obaidurrahman.databasefirst.RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/inpuserid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="user id"
+            android:inputType="textPersonName"
+            android:paddingTop="10px" />
+
+        <EditText
+            android:id="@+id/inpmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="email"
+            android:inputType="textPersonName"
+            android:paddingTop="10px" />
+
+        <EditText
+            android:id="@+id/inppass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="password"
+            android:inputType="textPersonName"
+            android:paddingTop="10px" />
+
+        <EditText
+            android:id="@+id/inprepass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="re-password"
+            android:inputType="textPersonName"
+            android:paddingTop="10px" />
+
+        <Button
+            android:id="@+id/btnreg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20px"
+            android:text="Register" />
+    </LinearLayout>
+</RelativeLayout>
