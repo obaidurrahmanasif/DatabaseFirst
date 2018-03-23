@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by saimon420420420 on 21/03/2018.
@@ -40,9 +42,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
          sql="create table "+table2;
         sql=sql+" ("+t2column1+" integer primary key autoincrement,";
         sql=sql+t2column2+" text,";
-        sql=sql+t2column3+" text)";
+        sql=sql+t2column3+" integer)";
        db.execSQL(sql);
         Log.d(TAG,"sql "+sql);
+    }
+
+    public boolean insetContacts(Contacts contacts)
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues values=new ContentValues();
+        values.put(t2column2,contacts.getName());
+        values.put(t2column3,contacts.getNumber());
+        Long res=db.insert(table2,null,values);
+        db.close();
+
+        if (res==-1)
+            return false;
+        else return true;
+    }
+    public List<Contacts> getContacts()
+    {
+        String sql="select * from "+table2;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor rs=db.rawQuery(sql,null);
+        List<Contacts> contactsList=new ArrayList<Contacts>();
+        while (rs.moveToNext())
+        {
+            int id=rs.getInt(0);
+            String name=rs.getString(1);
+            int number=rs.getInt(2);
+            Contacts contacts=new Contacts(id,name,number);
+            contactsList.add(contacts);
+        }
+        return contactsList;
     }
 
     public boolean createUser(UserModel userModel)
