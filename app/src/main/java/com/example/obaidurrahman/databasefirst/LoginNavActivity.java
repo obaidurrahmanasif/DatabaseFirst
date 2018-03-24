@@ -21,9 +21,7 @@ public class LoginNavActivity extends AppCompatActivity
 private Button addContact;
 FragmentManager manager;
 
-    {
-        manager = new FragmentManager();
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +29,7 @@ FragmentManager manager;
         setContentView(R.layout.activity_login_nav);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        manager=getSupportFragmentManager();
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
