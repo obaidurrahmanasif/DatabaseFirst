@@ -87,7 +87,10 @@ private Button addContact;
 
         if (id == R.id.nav_camera) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_contact) {
+            FragmentManager manager=getSupportFragmentManager();
+            manager.beginTransaction().replace(R.id.changView,new ContactFragment()).commit();
+
 
         } else if (id == R.id.nav_slideshow) {
 
