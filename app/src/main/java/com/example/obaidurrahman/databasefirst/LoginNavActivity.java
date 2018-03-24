@@ -19,6 +19,12 @@ import android.widget.Button;
 public class LoginNavActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 private Button addContact;
+FragmentManager manager;
+
+    {
+        manager = new FragmentManager();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +102,10 @@ private Button addContact;
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
+
+        }
+            else if(id==R.id.addcon){
+            
 
         }
 
